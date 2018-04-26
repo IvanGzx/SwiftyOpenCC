@@ -90,7 +90,12 @@ Pod::Spec.new do |s|
   #
 
   # s.public_header_files = "Classes/**/*.h"
-
+  s.source_files  = "Sources/*.{h,mm,swift}", "OpenCC/src/*.{hpp,cpp}", "OpenCC/deps/darts-clone/darts.h", "OpenCC/deps/rapidjson-0.11/**/*.h", "OpenCC/deps/tclap-1.2.1/tclap/*.h"
+  s.exclude_files = "OpenCC/src/*Test.{hpp,cpp}", "OpenCC/src/*TestBase.{hpp,cpp}"
+  s.public_header_files = "Sources/*.h"
+  s.resources = "Sources/Config/*", "Sources/Dictionary/*", "OpenCC/data/dictionary/*", "OpenCC/data/config/*"
+  s.preserve_paths = "Sources/module.modulemap"
+  s.xcconfig = { "SWIFT_INCLUDE_PATHS" => "$(PODS_TARGET_SRCROOT)/Sources" }
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
